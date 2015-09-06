@@ -33,7 +33,7 @@ function cTrails:onGameRender()
 						table.insert(self.particles[vehicleId], {position + angle * Vector3(0.8, 0, 0), angle, speed, 255})
 					end
 					local unused = {}
-					local alpha = math.min(speed - 1, 1)
+					local alpha = math.clamp(speed - 1, 0, 1)
 					for particleId, data in pairs(self.particles[vehicleId]) do
 						local transform = Transform3()
 						transform:Translate(data[1])
